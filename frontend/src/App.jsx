@@ -26,7 +26,7 @@ const App = () => {
       }
     };
     getUser()
-  },[])
+  },[dispatch])
   return (
     <Routes>
       <Route path="/" element={<Home />} />

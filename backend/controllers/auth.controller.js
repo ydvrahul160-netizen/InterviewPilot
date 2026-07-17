@@ -3,7 +3,6 @@ import User from "../models/user.model.js";
 
 // auth Controller
 export const googleAuth = async (req, res) => {
-
   try {
     const { name, email } = req.body;
     let user = await User.findOne({ email });
@@ -34,11 +33,18 @@ export const googleAuth = async (req, res) => {
 
 export const logOut = async (req, res) => {
   try {
-    await res.clearCookie("token");
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: false,
+      sameSite: "lax",
+    });
+
     return res.status(200).json({
       message: "Logout Successfully",
     });
   } catch (error) {
-    return res.status(500).json({ message: `Logout error ${error}` });
+    return res.status(500).json({
+      message: `Logout error ${error}`,
+    });
   }
 };
