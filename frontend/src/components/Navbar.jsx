@@ -34,19 +34,19 @@ const Navbar = () => {
     }
   };
   return (
-    <div className="bg[#f3f3f3] flex justify-center px-4 pt-6">
+    <div className="bg[#f3f3f3] flex justify-center px-4 pt-5">
       <motion.div
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
         className="w-full max-w-6xl bg-white rounded-[24px] shadow-sm border
-         border-gray-200 px-8 py-4 flex justify-between items-center relative"
+         border-gray-200 px-8 py-3 flex justify-between items-center relative"
       >
         <div className="flex items-center gap-3 cursor-pointer">
           <div className="bg-black text-white p-2 rounded-lg">
-            <BsRobot size={18} />
+            <BsRobot size={14} />
           </div>
-          <h1 className="font-semibold hidden md:block text-lg">
+          <h1 className="font-semibold md:block text-lg">
             InterviewPilot
           </h1>
         </div>
@@ -65,7 +65,7 @@ const Navbar = () => {
               }}
               className="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-full text-md hover:bg-gray-200 transition"
             >
-              <BsCoin size={20} />
+              <BsCoin size={17} />
               {userData?.credits || 0}
             </button>
             {showCreditPopup && (
@@ -99,7 +99,7 @@ const Navbar = () => {
               {userData ? (
                 userData?.name.slice(0, 1).toUpperCase()
               ) : (
-                <FaUserAstronaut size={16} />
+                <FaUserAstronaut size={14} />
               )}
             </button>
             {showUserPopup && (
