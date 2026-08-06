@@ -30,7 +30,7 @@ const Home = () => {
   const [showAuth, setShowAuth] = useState(false);
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen bg-pink-100 flex flex-col">
+    <div className="min-h-screen bg-yellow-100 flex flex-col">
       {/* bg-[#f3f3f3] */}
       <Navbar />
 
@@ -224,7 +224,7 @@ const Home = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ scale: 1.02 }}
-                  className="bg-white border-gray-200 rounded-3xl shadow-sm hover:shadow-xl transition-all p-8 md:p-8"
+                  className="bg-blue-100 border-gray-200 rounded-3xl shadow-sm hover:shadow-xl transition-all p-8 md:p-8"
                 >
                   <div className="flex flex-col md:flex-row items-center gap-8">
                     <div className="w-full md:w-1/2 flex justify-center">
@@ -291,7 +291,7 @@ const Home = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ y: -6 }}
-                  className="bg-white border-gray-200 rounded-3xl shadow-sm hover:shadow-xl transition-all p-8"
+                  className="bg-blue-100 border-gray-200 rounded-3xl shadow-sm hover:shadow-xl transition-all p-8"
                 >
                   <div className="flex items-center justify-between gap-6">
                     {/* left text */}

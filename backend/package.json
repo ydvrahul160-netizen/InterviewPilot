@@ -18,6 +18,8 @@
     "jsonwebtoken": "^9.0.3",
     "mongodb": "^7.5.0",
     "mongoose": "^9.7.4",
-    "nodemon": "^3.1.14"
+    "multer": "^2.2.0",
+    "nodemon": "^3.1.14",
+    "pdfjs-dist": "^6.2.108"
   }
 }

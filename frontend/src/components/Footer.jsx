@@ -3,7 +3,7 @@ import { BsRobot } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <div className=" bg-pink-100 flex justify-center px-4 pb-10 py-4 pt-10">
+    <div className=" bg-yelllow-100 flex justify-center px-4 pb-10 py-4 pt-10">
       {/* bg-[#f3f3f3] */}
       <div className="w-full max-w-6xl bg-white rounded-[24px] shadow-sm border border-gray-200 py-8 px-3 text-center">
 
@@ -13,7 +13,7 @@ const Footer = () => {
         </div>
 
         <p className="text-gray-500 text-sm max-w-xl mx-auto">
-            AI-Powered interview prepration platform designed to improve communication skills, technical depth and professional confidence.
+            AI-Powered interview preparation platform designed to improve communication skills, technical depth and professional confidence.
         </p>
       </div>
     </div>
