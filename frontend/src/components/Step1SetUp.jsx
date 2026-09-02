@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "motion/react";
 import {
   FaUserTie,
@@ -10,8 +9,13 @@ import {
 import { useState } from "react";
 import axios from "axios";
 import { ServerUrl } from "../App";
+import { useDispatch, useSelector } from "react-redux";
+import { setUserData } from "../redux/userSlice";
 
 const Step1SetUp = ({ onStart }) => {
+  const { userData } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
   // Store user's selected interview role (e.g. Frontend Developer, Backend Developer)
   const [role, setRole] = useState("");
 
@@ -67,6 +71,35 @@ const Step1SetUp = ({ onStart }) => {
       console.log(error);
     } finally {
       setAnalyzing(false);
+    }
+  };
+
+  const handleStart = async () => {
+    setLoading(true);
+    try {
+      const result = await axios.post(
+        ServerUrl + "/api/interview/generate-questions",
+        { role, experience, mode, resumeText, projects, skills },
+        { withCredentials: true },
+      );
+      console.log(result.data);
+
+      if (userData) {
+        dispatch(
+          setUserData({ ...userData, credits: result.data.creditsLeft }),
+        );
+      }
+
+      setLoading(false);
+      onStart(result.data);
+    } catch (error) {
+      console.log("Status:", error.response?.status);
+      console.log("Message:", error.response?.data?.message);
+
+      alert(error.response?.data?.message || "Something went wrong");
+
+      console.log(error);
+      setLoading(false);
     }
   };
 
@@ -241,7 +274,12 @@ const Step1SetUp = ({ onStart }) => {
                     <p className="font-sm text-gray-700 mb-1">Skills:</p>
                     <div className="flex flex-wrap gap-2 mt-2">
                       {skills.map((s, i) => (
-                        <span key={i} className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-sm">{s}</span>
+                        <span
+                          key={i}
+                          className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-sm"
+                        >
+                          {s}
+                        </span>
                       ))}
                     </div>
                   </div>
@@ -250,12 +288,13 @@ const Step1SetUp = ({ onStart }) => {
             )}
 
             <motion.button
-              disabled={!role || !experience}
+              onClick={handleStart}
+              disabled={!role || !experience || loading}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
               className="w-full disabled:bg-gray-600 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-full text-lg font-semibold transition duration-300 shadow-md"
             >
-              Start Interview
+              {loading ? "starting.." : "Start Interview"}
             </motion.button>
           </div>
         </motion.div>

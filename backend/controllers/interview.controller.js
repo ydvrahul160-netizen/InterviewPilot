@@ -137,7 +137,7 @@ export const generateQuestion = async (req, res) => {
       return res.status(400).json({ message: "User not found" });
     }
 
-    if (user.credits < 50) {
+    if (user.credits < 0) {
       return res
         .status(400)
         .json({ message: "Not enough credits. Minimum 50 required." });
@@ -248,7 +248,7 @@ export const generateQuestion = async (req, res) => {
   }
 };
 
-export const submitAnswer = async (res, req) => {
+export const submitAnswer = async (req, res) => {
   try {
     const { interviewId, questionIndex, answer, timeTaken } = req.body;
 
@@ -371,7 +371,7 @@ export const finishInterview = async (req, res) => {
     let totalCommunication = 0;
     let totalCorrectness = 0;
 
-    interview.questions.forEach((e) => {
+    interview.questions.forEach((q) => {
       totalScore += q.score || 0;
       totalConfidence += q.confidence || 0;
       totalCommunication += q.communication || 0;
@@ -402,12 +402,12 @@ export const finishInterview = async (req, res) => {
         score: q.score || 0,
         feedback: q.feedback || 0,
         confidence: q.confidence || 0,
-        communication: q.confidence || 0,
+        communication: q.communication || 0,
         correctness: q.correctness || 0,
       })),
     });
 
-    return res.status(200).json({});
+    // return res.status(200).json({});
   } catch (error) {
     return res
       .status(500)

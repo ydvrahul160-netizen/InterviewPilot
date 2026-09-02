@@ -7,7 +7,6 @@ import {
   BsMic,
   BsClock,
   BsBarChart,
-  BsFileEarmark,
   BsFileEarmarkText,
 } from "react-icons/bs";
 import { HiSparkles } from "react-icons/hi";
@@ -89,7 +88,10 @@ const Home = () => {
                 <div className="absolute inset-0 animate-aurora">
                   <div
                     className="absolute inset-[-150%]
-                    bg-[conic-gradient(from_0deg,#ffffff,#d4d4d4,#737373,#ffffff)]"
+                    bg-[conic-gradient(from_0deg,#ffffff,#a5f3fc,#38bdf8,#2563eb,#1d4ed8,#38bdf8,#ffffff)]
+                    
+                    
+                    "
                   />
                 </div>
 
@@ -102,8 +104,8 @@ const Home = () => {
                     }
                     navigate("/interview");
                   }}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: 1 }}
+                  whileTap={{ scale: 0.100 }}
                   className="relative z-10 rounded-full px-10 py-2 text-black bg-white/70 backdrop-blur-xl border border-white/40 shadow-lg transition-all duration-300 hover:bg-white/90"
                 >
                   Start Interview
@@ -120,7 +122,7 @@ const Home = () => {
                 }}
                 whileHover={{ opacity: 0.9, scale: 1.03 }}
                 whileTap={{ opacity: 1, scale: 0.98 }}
-                className="border border-gray-300 px-10 py-2 rounded-full hover:bg-gray-100 transition"
+                className="bg-white/70 border border-gray-300 px-10 py-2 rounded-full hover:bg-gray-100 transition"
               >
                 View History
               </motion.button>
@@ -267,7 +269,7 @@ const Home = () => {
                 {
                   img: hrImg,
                   title: "HR Interview Mode",
-                  desc: "Behavirol and communication based evaluation.",
+                  desc: "Behavioral and communication based evaluation.",
                 },
                 {
                   img: techImg,
