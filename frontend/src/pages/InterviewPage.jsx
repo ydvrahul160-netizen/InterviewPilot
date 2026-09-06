@@ -29,7 +29,7 @@ const InterviewPage = () => {
       {step === 2 && (<Step2Interview interviewData={interviewData}
        onFinish={(report)=>{
         // Save final interview report
-        setInterviewData;{report};
+        setInterviewData(report);
         // Move to Report screen
         setStep(3);
     }}

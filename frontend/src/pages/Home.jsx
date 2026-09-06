@@ -29,7 +29,7 @@ const Home = () => {
   const [showAuth, setShowAuth] = useState(false);
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen bg-yellow-100 flex flex-col">
+    <div className="min-h-screen bg-sky-50 flex flex-col">
       {/* bg-[#f3f3f3] */}
       <Navbar />
 

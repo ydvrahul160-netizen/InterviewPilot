@@ -174,11 +174,11 @@ const Step2Interview = ({ interviewData, onFinish }) => {
 
     return () => clearInterval(timer);
   }, [isIntroPhase, currentIndex]);
-  useEffect(()=>{
-    if (!isIntroPhase && currentQuestion){
-      setTimeLeft(currentQuestion.timeLimit || 60)
+  useEffect(() => {
+    if (!isIntroPhase && currentQuestion) {
+      setTimeLeft(currentQuestion.timeLimit || 60);
     }
-  },[currentIndex]);
+  }, [currentIndex]);
 
   useEffect(() => {
     if (!("webkitSpeechRecognition" in window)) return;
@@ -253,7 +253,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
     setFeedback("");
 
     if (currentIndex + 1 >= questions.length) {
-      finishInterview();
+      await finishInterview();
       return;
     }
 
@@ -286,7 +286,6 @@ const Step2Interview = ({ interviewData, onFinish }) => {
     if (!currentIndex) return;
 
     if (timeLeft === 0 && !isSubmitting && !feedback) {
-      // handleSubmit();
       submitAnswer();
     }
   }, [timeLeft]);
@@ -461,7 +460,11 @@ const Step2Interview = ({ interviewData, onFinish }) => {
                 onClick={handleNext}
                 className="w-full bg-gradient-to-r from-emerald-600 hover:opacity-90 transition flex items-center justify-center gap-1"
               >
-                Next Question <BsArrowRight size={18} />
+                {currentIndex + 1 >= questions.length
+                  ? "Finish Interview"
+                  : "Next Question"}
+
+                <BsArrowRight size={18} />
               </button>
             </motion.div>
           )}
