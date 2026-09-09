@@ -5,3 +5,4 @@ frontend/.env
 backend/.env
 
 .vscode/
+.env
