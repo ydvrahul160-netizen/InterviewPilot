@@ -10,10 +10,14 @@ import interviewRouter from "./routes/interview.route.js";
 import paymentRouter from "./routes/payment.route.js";
 
 const app = express();
+const allowedOrigins = [
+  "https://interviewpilot-1-hp61.onrender.com"
+];
+
 app.use(cors({
-  origin:"http://localhost:5173",
-  credentials:true
-}))
+  origin: allowedOrigins,
+  credentials: true
+}));
 
 
 app.use(express.json())
