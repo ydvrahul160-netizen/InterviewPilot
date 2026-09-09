@@ -9,7 +9,7 @@ import {
   getMyInterviews,
   submitAnswer,
 } from "../controllers/interview.controller.js";
-import { generatePath } from "react-router-dom";
+
 
 const interviewRouter = express.Router();
 
