@@ -11,6 +11,7 @@ import paymentRouter from "./routes/payment.route.js";
 
 const app = express();
 const allowedOrigins = [
+  "http://localhost:5173",
   "https://interviewpilot-1-hp61.onrender.com"
 ];
 
